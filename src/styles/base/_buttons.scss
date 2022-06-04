@@ -1,0 +1,18 @@
+
+.button_base {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.buttons_main {
+    @extend .button_base;
+    background-color: $main;
+    color: white;
+}
+
+.buttons_secondary {
+    @extend .button_base;
+    background-color: $secondary;
+    color: white;
+}
