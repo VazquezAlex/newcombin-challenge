@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useMembers } from '../../hooks/useMembers'
+import React, { useEffect, useState } from 'react';
 
-export const Form = () => {
-
-    const { states, stateUpdaters } = useMembers();
-    const { members } = states;
-    const { addMember } = stateUpdaters;
+export const Form = ({ addMember, members }) => {
 
     const [enableForm, setEnableForm] = useState( false );
     const [ formValues, setFormValues ] = useState({

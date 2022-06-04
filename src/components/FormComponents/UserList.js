@@ -1,11 +1,6 @@
 import React from 'react';
-import { getMembers } from '../../api/apiCall';
-import { useMembers } from '../../hooks/useMembers';
 
-export const UserList = () => {
-
-	const { states, stateUpdaters } = useMembers();
-	const { members } = states;
+export const UserList = ({ members }) => {
 
 	return (
 		<div className = ' userlist_container '>
@@ -19,12 +14,6 @@ export const UserList = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{/* <tr>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-						<td>3323-23-23</td>
-					</tr> */}
 					{ members.map(member => (
 						<tr key = { member.ssn }>
 							<td>{ member.firstName }</td>
