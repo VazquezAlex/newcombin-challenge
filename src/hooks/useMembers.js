@@ -9,17 +9,25 @@ export const useMembers = () => {
 		loadMembers();
 	}, []);
 
+    /* 
+     *   Add a new member to API DB.
+     *   @param { object } memberData. Object containin { firstName, lastName, address, ssn }
+     */
+    const addMember = ( memberData ) => {
+        addNewMember( memberData ).then(() => {
+            loadMembers();
+        }).catch(err => alert('An error ocurrend with code ' + err.status + ': ' + err.statusText ));
+    } 
+
+    /* 
+     *   Get members from API DB.
+     */
     const loadMembers = () => {
         getMembers().then(r => {
             setMembers( r );
 		})
     }
 
-    const addMember = ( memberData ) => {
-        addNewMember( memberData ).then(() => {
-            loadMembers();
-        }).catch(err => alert('An error ocurrend with code ' + err.status + ': ' + err.statusText ));
-    } 
 
     const states = {
         members,
