@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getMembers } from '../api/apiCall';
+import { addNewMember, getMembers } from '../api/apiCall';
 
 export const useMembers = () => {
 
@@ -11,9 +11,18 @@ export const useMembers = () => {
 
     const loadMembers = () => {
         getMembers().then(r => {
-			console.log( r );
             setMembers( r );
 		})
+    }
+
+    const addMember = () => {
+        const memberData = {
+            firstName: 'Alex',
+            lastName: 'Vazquez',
+            address: 'Mexico',
+            ssn: '123-45-5678',
+        }
+        addNewMember( memberData );
     }
 
     const states = {
@@ -21,7 +30,7 @@ export const useMembers = () => {
     }
 
     const stateUpdaters = {
-
+        addMember,
     }
 
     return {
