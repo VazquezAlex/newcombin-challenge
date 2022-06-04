@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { addNewMember, getMembers } from '../api/apiCall';
 
 export const useMembers = () => {
 
     const [members, setMembers] = useState([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
 		loadMembers();
 	}, []);
 
