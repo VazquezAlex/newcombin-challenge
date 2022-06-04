@@ -14,23 +14,25 @@ export const Form = () => {
         ssn: '',
     }) 
     const [ errors, setErrors ] = useState({
-        fields: '',
-        ssn: '',
+        fields: 'start',
+        ssn: 'start',
     })
 
     useEffect(() => {
+        if( errors.fields === 'start' ) return;
         enableFormCheck();
-        console.log( errors );
     }, [ formValues.lastName, formValues.firstName, formValues.address ]);
 
     useEffect(() => {
+        if( errors.ssn === 'start' ) return;
         validateSSN();
-        console.log( errors );
     }, [ formValues.ssn ]);
 
     useEffect(() => {
         if( errors.fields === 'ready' && errors.ssn === 'ready' ) {
             setEnableForm( true );
+        } else {
+            setEnableForm( false );
         }
     }, [ errors ]);
 
@@ -44,10 +46,14 @@ export const Form = () => {
             ...formValues,
             [target.name]: target.value.trim(),
         })
+        if( target.name !== 'ssn' ) {
+            enableFormCheck();
+        } else {
+            validateSSN();
+        }
     }
     
     const enableFormCheck = () => {
-        console.log('Checking...');
         const { firstName, lastName, address } = formValues;
         
         if( firstName.length >= 2 && lastName.length >= 2 && address.length >= 2 ) {
@@ -59,13 +65,11 @@ export const Form = () => {
 
     const validateSSN = () => {
         const { ssn } = formValues;
-        console.log('Checking ssn..')
         const regexp = /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/;
         if( !regexp.test(ssn) ) {
             setErrors({ ...errors, ssn: 'SSN must follow this structure ###-##-#### and only contain numbers.' })
         } else {
             setErrors({ ...errors, ssn: 'ready' })
-            console.log('Sí es un SSN');
         }
     }
 
@@ -100,11 +104,11 @@ export const Form = () => {
                     placeholder = 'SSN'
                     onChange = { handleInputChange }
                 />
-                { errors.ssn !== '' && errors.ssn !== 'ready' && (
+                { errors.ssn !== '' && errors.ssn !== 'ready' && errors.ssn !== 'start' && (
                     <p className = ' ui_error-message '>{ errors.ssn }</p>
                 ) }
 
-                { errors.fields !== '' && errors.fields !== 'ready' && (
+                { errors.fields !== '' && errors.fields !== 'ready' && errors.fields !== 'start' && (
                     <p className = ' ui_error-message pad-top-1 '>{ errors.fields }</p>
                 ) }
 
