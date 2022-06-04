@@ -4,6 +4,7 @@ import { useMembers } from '../../hooks/useMembers'
 export const Form = () => {
 
     const { states, stateUpdaters } = useMembers();
+    const { members } = states;
     const { addMember } = stateUpdaters;
 
     const [enableForm, setEnableForm] = useState( false );
@@ -69,7 +70,16 @@ export const Form = () => {
         if( !regexp.test(ssn) ) {
             setErrors({ ...errors, ssn: 'SSN must follow this structure ###-##-#### and only contain numbers.' })
         } else {
-            setErrors({ ...errors, ssn: 'ready' })
+            checkForExistingSSN( ssn );
+        }
+    }
+
+    const checkForExistingSSN = ( ssn ) => {
+        const foundSSN = members.findIndex(member => member.ssn === ssn);
+        if( foundSSN !== -1 ) {
+            setErrors({ ...errors, ssn: 'This SSN is already registered with another user.'} );
+        } else {
+            setErrors({ ...errors, ssn: 'ready'} );
         }
     }
 
