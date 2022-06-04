@@ -33,7 +33,6 @@ export const getMembers = () => {
             })
     
             membersRes.json().then(res => {
-                console.log(res);
                 resolve( res );
             }).catch(e => {
                 reject(new Error(e));

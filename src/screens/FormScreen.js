@@ -13,21 +13,14 @@ export const FormScreen = () => {
     const { addMember, loadMembers } = stateUpdaters;
 
 	const onIdle = () => {
-		console.log('You are not using this.')
 		loadMembers();
 		reset();
-	}
-
-	const onActive = (event) => {
-		// Close Modal Prompt
-		// Do some active action
 	}
 	
 	const {
 		reset,
 	  } = useIdleTimer({
 		onIdle,
-		onActive,
 		timeout: 1000 * 60 * 2,
 		promptTimeout: 0,
 		events: [
