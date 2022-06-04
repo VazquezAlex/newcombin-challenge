@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Install the dependencies running the command: 
 ### `yarn`
 
+The dependencies used (apart from React's own): sass (yarn add sass), and react-idle-timer (yarn add react-idle-timer).
+
 ## Available Scripts
 
 In the project directory, you can run:
