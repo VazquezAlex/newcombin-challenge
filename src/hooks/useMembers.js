@@ -15,13 +15,7 @@ export const useMembers = () => {
 		})
     }
 
-    const addMember = () => {
-        const memberData = {
-            firstName: 'Alex',
-            lastName: 'Vazquez',
-            address: 'Mexico',
-            ssn: '123-45-5678',
-        }
+    const addMember = ( memberData ) => {
         addNewMember( memberData );
     }
 
