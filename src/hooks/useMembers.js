@@ -35,6 +35,7 @@ export const useMembers = () => {
 
     const stateUpdaters = {
         addMember,
+        loadMembers,
     }
 
     return {
