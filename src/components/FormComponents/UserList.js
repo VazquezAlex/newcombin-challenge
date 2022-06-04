@@ -13,7 +13,7 @@ export const UserList = ({ members }) => {
 						<th>SSN</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody className = ' userlist_table-body ' >
 					{ members.map(member => (
 						<tr key = { member.ssn }>
 							<td>{ member.firstName }</td>

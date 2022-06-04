@@ -2,7 +2,7 @@ import { FormScreen } from "./screens/FormScreen";
 
 function App() {
     return (
-		<div className="App">
+		<div>
 			<FormScreen />
 		</div>
     );

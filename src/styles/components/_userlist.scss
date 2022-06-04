@@ -9,4 +9,21 @@
 
 .userlist_table-header {
     border-bottom: 1px solid $lightgrey;
+
+    th {
+        padding-bottom: 15px;
+    }
+
+}
+
+.userlist_table-body {
+    padding-top: 100px;
+    
+    td {
+        padding: 10px 5px;
+    }
+
+    tr:hover {
+        background-color: rgb(234, 234, 234);
+    }
 }

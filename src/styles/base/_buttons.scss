@@ -9,12 +9,22 @@
     @extend .button_base;
     background-color: $main;
     color: white;
+
+    &:hover {
+        filter: opacity(0.8);
+    }
+
 }
 
 .buttons_secondary {
     @extend .button_base;
     background-color: $secondary;
     color: white;
+
+    &:hover {
+        filter: opacity(0.8);
+    }
+
 }
 
 .buttons_form {

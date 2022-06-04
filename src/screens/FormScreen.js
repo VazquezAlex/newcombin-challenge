@@ -13,11 +13,11 @@ export const FormScreen = () => {
     return (
 		<div>
 			<Header />
-			<div className = '  row '>
-				<div className = ' col-6 '>
+			<div className = ' formscreen_container '>
+				<div className = ' formscreen_section '>
 					<Form members = { members } addMember = { addMember }/>
 				</div>
-				<div className = ' col-6 '>
+				<div className = ' formscreen_section '>
 					<UserList members = { members } />
 				</div>
 			</div>

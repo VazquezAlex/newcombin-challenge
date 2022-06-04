@@ -2,11 +2,11 @@ import React from 'react'
 
 export const Header = () => {
     return (
-        <div className = ' row '>
-            <div className = ' col-6 p-4 d-flex align-items-center justify-content-center '>
+        <div className = ' header_container '>
+            <div className = ' header_link '>
                 <p>Home Screen</p>
             </div>        
-            <div className = ' col-6 p-4 d-flex align-items-center justify-content-center '>
+            <div className = ' header_link '>
                 <p>Other Page</p>
             </div>        
         </div>
