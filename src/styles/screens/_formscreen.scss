@@ -1,6 +1,11 @@
 
 .formscreen_container {
     display: flex;
+    height: calc(80vh - 2rem);
+    margin-top: 2rem;
+    max-height: 80vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .formscreen_section {

@@ -2,8 +2,7 @@ import React from 'react'
 import { useIdleTimer} from 'react-idle-timer';
 
 import { Form } from '../components/FormComponents/Form'
-import { UserList } from '../components/FormComponents/UserList'
-import { Header } from '../components/Header'
+import { UserList } from '../components/FormComponents/UserList';
 import { useMembers } from '../hooks/useMembers'
 
 export const FormScreen = () => {
@@ -50,7 +49,6 @@ export const FormScreen = () => {
 
     return (
 		<div>
-			<Header />
 			<div className = ' formscreen_container '>
 				<div className = ' formscreen_section '>
 					<Form members = { members } addMember = { addMember }/>

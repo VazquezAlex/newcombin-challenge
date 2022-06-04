@@ -165,7 +165,7 @@ export const Form = ({ addMember, members }) => {
                         className = ' buttons_main buttons_form '
                         disabled = { !enableForm }
                     >
-                        Enviar
+                        Save
                     </button>
                 </div>
             </form>
