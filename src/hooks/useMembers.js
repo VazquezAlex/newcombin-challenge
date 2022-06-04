@@ -16,8 +16,10 @@ export const useMembers = () => {
     }
 
     const addMember = ( memberData ) => {
-        addNewMember( memberData );
-    }
+        addNewMember( memberData ).then(() => {
+            loadMembers();
+        }).catch(err => alert('An error ocurrend with code ' + err.status + ': ' + err.statusText ));
+    } 
 
     const states = {
         members,

@@ -68,7 +68,13 @@ export const addNewMember = async ({ firstName, lastName, address, ssn }) => {
                 })
             })  
 
-            console.log(response.json());
+            console.log(response);
+            if( response.status === 200 ) {
+                resolve(response.status)
+            } else {
+                reject( response )
+            }
+
         })
     })
 }
