@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
+const formValuesInitialState = {
+    firstName: '',
+    lastName: '',
+    address: '',
+    ssn: '',
+}
+
+const errorsIntialState = {
+    fields: 'start',
+    ssn: 'start',
+}
+
 export const Form = ({ addMember, members }) => {
 
     const [enableForm, setEnableForm] = useState( false );
-    const [ formValues, setFormValues ] = useState({
-        firstName: '',
-        lastName: '',
-        address: '',
-        ssn: '',
-    }) 
-    const [ errors, setErrors ] = useState({
-        fields: 'start',
-        ssn: 'start',
-    })
+    const [ formValues, setFormValues ] = useState(formValuesInitialState); 
+    const [ errors, setErrors ] = useState(errorsIntialState)
 
     useEffect(() => {
         if( errors.fields === 'start' ) return;
@@ -33,8 +37,8 @@ export const Form = ({ addMember, members }) => {
     }, [ errors ]);
 
     const handleFormSubmit = ( e ) => {
-        e.preventDefault();
         addMember(formValues);
+        setFormValues( formValuesInitialState );
     }
 
     const handleInputChange = ({ target }) => {
@@ -76,6 +80,11 @@ export const Form = ({ addMember, members }) => {
         } else {
             setErrors({ ...errors, ssn: 'ready'} );
         }
+    }
+
+    const resetForm = () => {
+        setFormValues( formValuesInitialState );
+        setErrors( errorsIntialState );
     }
 
     return (
@@ -120,6 +129,8 @@ export const Form = ({ addMember, members }) => {
                 <div className = ' form_cta-container pad-top-1 '>
                     <button
                         className = ' buttons_secondary margin-end-1 '
+                        type = 'reset'
+                        onClick = { resetForm }
                     >
                         Reset
                     </button>
