@@ -16,3 +16,10 @@
     background-color: $secondary;
     color: white;
 }
+
+.buttons_form {
+    &:disabled {
+        filter: opacity(0.5);
+        cursor: not-allowed;
+    }
+}
